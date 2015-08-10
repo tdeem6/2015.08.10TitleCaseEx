@@ -8,6 +8,10 @@
         'twig.path' => __DIR__.'/../views'
     ));
 
+    $app->get("/", function() use ($app) {
+        return $app['twig']->render('form.twig');
+    });
+
     $app->get("/view_title_case", function() use($app) {
         $myTitleCaseGenerator = new TitleCaseGenerator;
         $title_cased_phrase = $myTitleCaseGenerator->makeTitleCase($_GET['phrase']);
